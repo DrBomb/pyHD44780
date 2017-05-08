@@ -1,6 +1,8 @@
-from pyHD44780 import PCF8574LCD
+from pyLiquidCrystal.I2C import PCFLCD
+from smbus import SMBus
 
-lcd = PCF8574LCD(1,0x3f,16,2)
+bus = SMBus(1)
+lcd = PCFLCD(bus,0x3f,16,2)
 
 lcd.setCursor(5,0)
 lcd.writeString("Hello")
